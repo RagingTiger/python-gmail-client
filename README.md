@@ -16,7 +16,7 @@ instructions:
 https://support.google.com/accounts/answer/185839
 
 
-### 3: Setup App Password
+### 3: Generate App Password
 Now with your newly created *Gmail* account, you will want to setup an *App
 Password*. This will allow your app, and the *Gmail* python class, to access
 your *Gmail* account as an *smtp relay* and forward email. Click the below
