@@ -28,18 +28,25 @@ class Gmail(object):
         session.login(self.email, self.password)
         self.session = session
 
-    def send_message(self, subject, body):
-        ''' Format and send email to smtp.gmail.com relay '''
+    def send_message(self, subject, body, recipient=False):
+        ''' Format and send email to smtp.gmail.com relay. '''
+        # check recipient
+        if not recipient:
+            recipient = self.email
+
+        # create header
         headers = [
             "From: " + self.email,
             "Subject: " + subject,
-            "To: " + self.email,
+            "To: " + recipient,
             "MIME-Version: 1.0",
             "Content-Type: text/html"]
         headers = "\r\n".join(headers)
+
+        # send
         self.session.sendmail(
             self.email,
-            self.email,
+            recipient,
             headers + "\r\n\r\n" + body)
 
 
@@ -62,7 +69,13 @@ if __name__ == '__main__':
     try:
         message = {'subject': str(sys.argv[1]), 'body': str(sys.argv[2])}
     except IndexError:
-        sys.exit('Usage: python gmail.py subject body')
+        sys.exit('Usage: python gmail.py subject body [recipient]')
+
+    # now check for optional recipient
+    try:
+        recipient = str(sys.argv[3])
+    except IndexError:
+        recipient = ''
 
     # send mesage
-    gm.send_message(message['subject'], message['body'])
+    gm.send_message(message['subject'], message['body'], recipient)
