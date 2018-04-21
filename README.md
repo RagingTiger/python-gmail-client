@@ -1,5 +1,5 @@
 ## About
-A simple *Python class* (Python 2) and CLI to wrap the sending of emails
+A simple *Python class* (for both Python 2 and Python 3) and CLI to wrap the sending of emails
 programmatically from *Python* using *Gmail's smtp relay* (i.e. smtp.gmail.com).
 
 ## Download Source
