@@ -3,7 +3,7 @@
 """
 author: tigerj
 references: https://stackoverflow.com/a/24364538 Ricky Wilson 6/23/14
-usage: python gmail.py subject body
+usage: python gmail.py subject body [recipient]
 """
 
 # libs
